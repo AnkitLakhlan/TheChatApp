@@ -4,6 +4,7 @@ const newChatForm = document.querySelector('.new-chat');
 const newNameForm = document.querySelector('.new-name');
 const updateMssg = document.querySelector('.update-mssg');
 const rooms = document.querySelector('.chat-rooms');
+const btns = rooms.getElementsByClassName('btn');
 
 //add a new chat
 newChatForm.addEventListener('submit', e=> {
@@ -34,10 +35,6 @@ rooms.addEventListener('click', e => {
     if(e.target.tagName === 'BUTTON') {
         chatUI.clear();
         chatroom.updateRoom(e.target.getAttribute('id'));
-        // const ID = e.target.getAttribute('id');
-        // const btnID = document.getElementById(ID);
-        // btnID.classList.add('active');
-        // console.log(btnID)
         chatroom.getChats( chat => {
             chatUI.render(chat);
         } )
@@ -57,3 +54,11 @@ const chatroom = new Chatroom('gaming', username);
 chatroom.getChats(data => chatUI.render(data));
 
 //update active class
+// Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function() {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
