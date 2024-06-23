@@ -10,10 +10,14 @@ class ChatUI {
       this.list.innerHTML = '';
     }
     render(data){
-      const when = dateFns.distanceInWordsToNow(
+      // const when = dateFns.distanceInWordsToNow(
+      //   data.created_at.toDate(),
+      //   { addSuffix: true }
+      //   );
+      const when = dateFns.formatDistanceToNow(
         data.created_at.toDate(),
-        { addSuffix: true }
-        );
+        {addSuffix: true}
+      )
       const html = `
         <li class="list-group-item">
           <span class="username">${data.username}</span>

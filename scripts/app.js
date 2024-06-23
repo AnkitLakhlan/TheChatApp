@@ -7,7 +7,7 @@ const rooms = document.querySelector('.chat-rooms');
 const btns = rooms.getElementsByClassName('btn');
 
 //add a new chat
-newChatForm.addEventListener('submit', e=> {
+newChatForm.addEventListener('submit', e => {
     e.preventDefault();
     const message = newChatForm.message.value.trim();
     chatroom.addChat(message)
@@ -26,20 +26,20 @@ newNameForm.addEventListener('submit', e => {
     // show and then hide the update message 
     updateMssg.innerText = `Your name was updated to ${newName}`;
     setTimeout(() => {
-       updateMssg.innerText = '';     
+        updateMssg.innerText = '';
     }, 3000);
 })
 
 // update the chat rooms 
 rooms.addEventListener('click', e => {
-    if(e.target.tagName === 'BUTTON') {
+    if (e.target.tagName === 'BUTTON') {
         chatUI.clear();
         chatroom.updateRoom(e.target.getAttribute('id'));
-        chatroom.getChats( chat => {
+        chatroom.getChats(chat => {
             chatUI.render(chat);
-        } )
+        })
 
-        
+
     }
 })
 
@@ -56,9 +56,9 @@ chatroom.getChats(data => chatUI.render(data));
 //update active class
 // Loop through the buttons and add the active class to the current/clicked button
 for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function() {
-      var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-      this.className += " active";
+    btns[i].addEventListener("click", function () {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
     });
-  }
+}
