@@ -7,19 +7,19 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css">
-  <title>Ankit's  ChatRoom</title>
+  <title>Ninja Chat</title>
 </head>
 
 <body>
 
   <!-- container & title -->
   <div class="container my-4">
-    <h1 class="my-4 text-center">Ankit's  ChatRoom</h1>
+    <h1 class="my-4 text-center">Ninja Chat</h1>
     <!-- buttons for chatrooms -->
     <div class="chat-rooms mb-3 text-center">
       <div class="my-2">Choose a chatroom:</div>
       <button class="btn" id="general">#general</button>
-      <button class="btn active" id="gaming">#gaming</button>
+      <button class="btn" id="gaming">#gaming</button>
       <button class="btn" id="music">#music</button>
       <button class="btn" id="ninjas">#ninjas</button>
     </div>
@@ -50,26 +50,27 @@
           <input type="submit" class="btn" value="update">
         </div>
       </div>
-      <div class="update-mssg"></div>
+      <div class="update-mssg text-center my-2"></div>
     </form>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/cdn.min.js"></script>
+  <script src="http://cdn.date-fns.org/v1.9.0/date_fns.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
   <script>
+      console.log('Firebase object:', window.firebase);
     // Initialize Firebase
     const config = {
-      apiKey: "AIzaSyC38Gai_teOZJYDo3z3D2zP0NCIiPWe9J8",
-      authDomain: "myfirstrun-cc3b7.firebaseapp.com",
-      projectId: "myfirstrun-cc3b7",
-      storageBucket: "myfirstrun-cc3b7.appspot.com",
-      messagingSenderId: "1046325158390",
-      appId: "1:1046325158390:web:cc51af4ddf5cd11f9ca7d7",
-      measurementId: "G-MBKQG8THRR"
+      apiKey: "AIzaSyDzsuZsmZ_U2mowz9YeQc46XGjdVK1IFHI",
+      authDomain: "chatroom-d91aa.firebaseapp.com",
+      projectId: "chatroom-d91aa",
+      storageBucket: "chatroom-d91aa.firebasestorage.app",
+      messagingSenderId: "215420530324",
+      appId: "1:215420530324:web:a065654d17920c93b18e81"
     };
     firebase.initializeApp(config);
     const db = firebase.firestore();
+    console.log('Firestore DB initialized:', db);
   </script>
   <script src="scripts/chat.js"></script>
   <script src="scripts/ui.js"></script>
